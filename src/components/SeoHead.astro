@@ -1,0 +1,119 @@
+---
+import { SEO } from 'astro-seo';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title = 'Ryan Goldbacher | Tour Manager, Production Manager & FOH Audio Engineer',
+  description = 'Ryan Goldbacher is a tour manager, production manager, and FOH audio engineer with more than 20 years of international live-event experience.',
+  canonical = 'https://ryangoldbacher.com/',
+} = Astro.props;
+
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does a Tour Manager do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Tour Manager handles routing, advancing, budgets, travel, hospitality, and day-to-day decisions that keep the tour moving. They are the single point of contact for all logistics from load-in to load-out."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a Production Manager do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Production Manager oversees technical coordination, local crew leadership, production schedules, and vendor communication. They ensure the show runs smoothly from a technical standpoint."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you become a FOH Audio Engineer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "FOH Audio Engineering requires years of live sound experience, console training (Avid, Yamaha, Allen & Heath, Midas), system tuning skills, and the ability to make real-time mix decisions under pressure. Most engineers start in monitor engineering or local crew roles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What artists has Ryan Goldbacher toured with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ryan Goldbacher has toured with Accept, Sebastian Bach, Brother Cane, The HU, Stiff Little Fingers, Mr. Big, Pop Evil, and Tom Keifer, among others, across 20+ years and 6 continents."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does tour management cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tour management costs vary by tour size, duration, and geographic scope. A dedicated TM for a mid-size act typically ranges from -,000 per week plus travel and accommodation. Contact for a custom quote."
+      }
+    }
+  ]
+};
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ryan Goldbacher",
+  "url": "https://ryangoldbacher.com/",
+  "logo": "https://ryangoldbacher.com/images/ryan-goldbacher-logo.jpg",
+  "sameAs": [
+    "https://www.instagram.com/ryanthegoldbacher/",
+    "https://www.tiktok.com/@RyanTheGoldbacher",
+    "https://www.youtube.com/@RyanTheGoldbacher",
+    "https://linktr.ee/RyanTheGoldbacher"
+  ],
+  "description": "Tour manager, production manager, and FOH audio engineer with 20+ years international live-event experience."
+};
+---
+
+<SEO
+  title={title}
+  description={description}
+  canonical={canonical}
+  openGraph={{
+    basic: {
+      title,
+      type: 'website',
+      image: 'https://ryangoldbacher.com/images/ryan-goldbacher-logo.jpg',
+      url: canonical,
+    },
+    optional: {
+      description,
+      siteName: 'Ryan Goldbacher',
+      locale: 'en_US',
+    },
+    image: {
+      alt: 'Ryan Goldbacher — Tour Manager, Production Manager & FOH Audio Engineer',
+      width: 1200,
+      height: 1200,
+      type: 'image/jpeg',
+    },
+  }}
+  twitter={{
+    card: 'summary_large_image',
+    site: '@RyanTheGoldbacher',
+    creator: '@RyanTheGoldbacher',
+    title,
+    description,
+    image: 'https://ryangoldbacher.com/images/ryan-goldbacher-logo.jpg',
+    imageAlt: 'Ryan Goldbacher — Tour Manager, Production Manager & FOH Audio Engineer',
+  }}
+/>
+
+<script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="/images/ryan-goldbacher-logo.jpg" type="image/jpeg" />
+<link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />

@@ -1,0 +1,105 @@
+---
+interface TourArtist {
+  name: string;
+  dates: DateRange[];
+  officialLink?: string;
+}
+
+interface DateRange {
+  start: string;
+  end?: string;
+  city: string;
+  venue: string;
+}
+
+const tourArtists: TourArtist[] = [
+  {
+    name: "Texas Is The Reason",
+    officialLink: "https://www.texasisthereason.com/",
+    dates: [
+      { start: "Oct 20, 2026", city: "Washington, DC", venue: "Union Stage" },
+      { start: "Oct 21, 2026", city: "Charlotte, NC", venue: "Amos' Southend" },
+      { start: "Oct 22, 2026", city: "Atlanta, GA", venue: "The Masquerade" },
+      { start: "Oct 24, 2026", city: "Gainesville, FL", venue: "Fest" },
+      { start: "Nov 4, 2026", city: "Tokyo, Japan", venue: "O-nest" },
+      { start: "Nov 5, 2026", city: "Tokyo, Japan", venue: "WWWX" },
+      { start: "Nov 7, 2026", city: "Nagoya, Japan", venue: "Live & Lounge Vio" },
+      { start: "Nov 8, 2026", city: "Osaka, Japan", venue: "Socore Factory" },
+      { start: "Nov 12, 2026", city: "Nashville, TN", venue: "The Truth" }
+    ]
+  },
+  {
+    name: "Boys Like Girls",
+    officialLink: "https://www.boyslikegirls.com/",
+    dates: [
+      { start: "Sep 26, 2026", city: "Pittsburgh, PA", venue: "Four Chord Music Festival" },
+      { start: "Nov 20, 2026", city: "Shillong, India", venue: "Shillong Indian International Cherry Blossom Festival" }
+    ]
+  },
+  {
+    name: "Tom Keifer",
+    dates: [
+      { start: "No upcoming tour dates currently listed", city: "N/A", venue: "N/A" }
+    ]
+  }
+];
+
+const today = new Date();
+const upcomingTourists = tourArtists.filter(artist =>
+  artist.dates.some(date => new Date(date.start) >= today)
+);
+
+function toIcsDate(dateStr: string) {
+  // Parse "Oct 20, 2026" into YYYYMMDD
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return "";
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}${m}${day}`;
+}
+
+function buildIcs(artist: string, date: DateRange, venue: string, city: string) {
+  const dtStart = toIcsDate(date.start);
+  if (!dtStart) return "# No valid date";
+  const lines = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//Ryan Goldbacher//Tour Dates//EN",
+    "BEGIN:VEVENT",
+    `DTSTART:${dtStart}T190000Z`,
+    "DTEND:${dtStart}T230000Z",
+    `SUMMARY:${artist} — ${city}, ${venue}`,
+    `LOCATION:${venue}, ${city}`,
+    "END:VEVENT",
+    "END:VCALENDAR"
+  ];
+  return lines.join("\\n");
+}
+---
+
+<section id="tour" class="section">
+  <div class="container">
+    <h2>Tour Dates</h2>
+    {upcomingTourists.map(artist => {
+      const isPending = artist.dates.length === 1 && artist.dates[0].city === "N/A";
+      return (
+        <div class="tour-card">
+          <h3>
+            {artist.officialLink ? <a href={artist.officialLink} target="_blank" rel="noopener noreferrer">{artist.name}</a> : artist.name}
+            {isPending && <span style="margin-left:0.5rem;font-size:0.8rem;color:var(--muted);font-weight:500;">No dates announced</span>}
+          </h3>
+          <ul>
+            {artist.dates.map(date => (
+              <li>
+                <time>{date.start}</time> — {date.city}, {date.venue} · {!isPending && (
+                  <a class="add-cal" href={`data:text/calendar;charset=utf-8,${encodeURIComponent(buildIcs(artist.name, date, date.venue, date.city))}`} download={`${artist.name.replace(/\s+/g, '-')}-${date.start}.ics`} target="_blank" rel="noopener noreferrer">Add to calendar ↗</a>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    })}
+  </div>
+</section>

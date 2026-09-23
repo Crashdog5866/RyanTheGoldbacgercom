@@ -1,0 +1,113 @@
+---
+title: Contact
+slug: contact
+date: 2026-09-22T06:33:03.608Z
+status: publish
+categories: []
+tags: []
+post_type: page
+original_permalink: /contact/
+source_path: /Users/m1mac/.openclaw/workspace/algorithm-tickler/ryangoldbacher/src/pages/contact.astro
+---
+
+<BaseLayout
+  title="Contact | Tour Management & Production Support | Ryan Goldbacher"
+  description="Contact Ryan Goldbacher for tour management, production, and FOH engineering services. Email available upon request."
+  canonical="https://ryangoldbacher.com/contact/"
+>
+  <section class="section">
+    <div class="container">
+      <header style="margin-bottom: 2rem;">
+        <h1>Contact</h1>
+        <p class="lead">For touring, production, FOH, speaking, podcast, or media inquiries, fill out the form and I'll get back to you.</p>
+      </header>
+
+      <div class="content-grid" style="align-items: start;">
+        <form class="contact-form" name="contact" method="POST" data-form netlify hx-post="/api/contact" hx-target="#form-result" hx-swap="innerHTML">
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required placeholder="Your name" />
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com" />
+          </div>
+          <div class="form-row">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject" required>
+              <option value="">Select a topic</option>
+              <option value="touring">Touring / Tour Management</option>
+              <option value="production">Production / PM</option>
+              <option value="foh">FOH Audio Engineering</option>
+              <option value="speaking">Speaking / Podcast</option>
+              <option value="media">Media / Press</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+          </div>
+          <div class="form-row">
+            <button class="button button-primary" type="submit" id="contact-submit">Send message</button>
+          </div>
+          <div id="form-result" class="form-result" role="status" aria-live="polite"></div>
+          <div class="honeypot" aria-hidden="true">
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+        </form>
+
+        <aside class="contact-card" style="margin-top: 2rem;">
+          <h2 style="margin-top: 0;">What happens next?</h2>
+          <p>
+            I review inbound inquiries when I'm not on the road. Expect a direct response,
+            not a sales funnel.
+          </p>
+          <ul style="color: var(--muted); line-height: 1.8; padding-left: 1.25rem; margin-top: 1rem;">
+            <li>For tour bookings: share the dates, route, and production scope.</li>
+            <li>For FOH work: tell me the console, venue, and artist needs.</li>
+            <li>For content or speaking: include the format and audience.</li>
+          </ul>
+          <p style="margin-top: 1.5rem; color: var(--muted);">
+            Prefer email? <a href={`mailto:${resumeData.email}`} style="color: var(--accent-2);">Ryan@Show-Logistics.com</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .lead { color: var(--muted); font-size: clamp(1rem, 2vw, 1.2rem); margin-bottom: 2rem; }
+  .contact-form { max-width: 640px; }
+  .form-row { margin-bottom: 1.25rem; }
+  label { display: block; color: var(--muted); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  input, select, textarea { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--text); font-size: 1rem; font-family: inherit; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent-2); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-2) 15%, transparent); }
+  .button-primary { background: var(--accent); color: #111827; border-color: transparent; padding: 0.75rem 1.75rem; font-weight: 800; border-radius: 10px; cursor: pointer; }
+  .button-primary:hover { background: #fb923c; }
+  .form-result { margin-top: 1rem; color: var(--accent-2); font-weight: 700; min-height: 1.5rem; }
+  .honeypot { position: absolute; left: -9999px; height: 0; overflow: hidden; }
+  #contact-submit[aria-busy="true"] { opacity: 0.75; cursor: wait; }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 0.01ms !important; }
+  }
+</style>
+
+<script>
+  document.addEventListener('htmx:configRequest', (event) => {
+    const btn = document.getElementById('contact-submit');
+    if (event.detail.verb === 'post' && btn) {
+      btn.setAttribute('aria-busy', 'true');
+      btn.textContent = 'Sending...';
+    }
+  });
+  document.addEventListener('htmx:responseError', (event) => {
+    const btn = document.getElementById('contact-submit');
+    if (btn) {
+      btn.removeAttribute('aria-busy');
+      btn.textContent = 'Send message';
+    }
+  });
+</script>

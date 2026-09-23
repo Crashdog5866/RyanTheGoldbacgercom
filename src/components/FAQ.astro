@@ -1,0 +1,29 @@
+---
+const faqs = [
+  {
+    question: "How do you coordinate logistics across multiple cities?",
+    answer: "I use a centralized spreadsheet with real-time status columns (Planned, In-Progress, Completed) and sync it daily with my team via shared Google Drive."
+  },
+  {
+    question: "Can you recommend gear for a small venue?",
+    answer: "For a room-sized space, a 12-channel mixer, 2x 15\" speakers, and a pair of powered monitors work great. Always test the signal chain before the show."
+  },
+  {
+    question: "What should I do if a show falls through?",
+    answer: "Communicate transparently with the artist, adjust the setlist if needed, and have a backup plan (alternate venue, alternate soundcheck slot). I always have a contingency kit."
+  }
+];
+---
+<section class="section" id="faq">
+  <div class="container">
+    <h2>Frequently Asked Questions</h2>
+    <div class="cards">
+      {faqs.map((faq) => (
+        <div class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

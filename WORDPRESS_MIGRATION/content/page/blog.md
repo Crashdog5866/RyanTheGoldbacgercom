@@ -1,0 +1,48 @@
+---
+title: Blog
+slug: blog
+date: 2026-09-22T06:33:03.607Z
+status: publish
+categories: []
+tags: []
+post_type: page
+original_permalink: /blog/
+source_path: /Users/m1mac/.openclaw/workspace/algorithm-tickler/ryangoldbacher/src/pages/blog.astro
+---
+
+<BaseLayout
+  title="Blog | Ryan Goldbacher"
+  description="Verified insights from Ryan Goldbacher on career journey, audio engineering, tour management, and live sound."
+  canonical="https://ryangoldbacher.com/blog/"
+>
+  <section class="section">
+    <div class="container">
+      <h1>Blog</h1>
+      <p>Verified insights from Ryan Goldbacher on career journey, audio engineering, tour management, and live sound.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Latest Articles</h2>
+      <div class="grid grid-1">
+        <article class="card">
+          <h3>Why I Don't Use DiGiCo Consoles — And What I Use Instead</h3>
+          <p>25-year FOH engineer breaks down his console preferences: why he's not a DiGiCo fan, why he chooses Allen & Heath and Yamaha, and the philosophy that gear should serve the engineer.</p>
+          <p><strong>Topics covered:</strong> Console comparisons, sound philosophy, workflow preferences, digital evolution.</p>
+          <p><em>By Ryan Goldbacher · September 20, 2026</em></p>
+          <a class="button" href="/blog/2026-09-20-digico-console-opinion/">Read Full Article</a>
+        </article>
+
+
+        <article class="card">
+          <h3>Why I Believe in Learning by Doing — Not Degrees</h3>
+          <p>You'll learn 10 times more from doing stuff than by studying stuff. I wish sound companies would set aside time to just play around.</p>
+          <p><strong>Topics covered:</strong> Technical philosophy, hands-on learning, safe failure environments, live sound career advice.</p>
+          <p><em>By Ryan Goldbacher · September 20, 2026</em></p>
+          <a class="button" href="/blog/2026-09-20-technical-philosophy-learn-by-doing/">Read Full Article</a>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

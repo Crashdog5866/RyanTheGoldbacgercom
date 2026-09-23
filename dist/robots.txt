@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ryangoldbacher.com/sitemap-index.xml

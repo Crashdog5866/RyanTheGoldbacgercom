@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const tourDates = [
+  { date: '2026-09-20', venue: 'The Troubadour', city: 'Los Angeles, CA', band: 'Texas Is The Reason' },
+  { date: '2026-09-25', venue: '9:30 Club', city: 'Washington, DC', band: 'Boys Like Girls' },
+  { date: '2026-10-02', venue: 'Bowery Ballroom', city: 'New York, NY', band: 'Texas Is The Reason' },
+  { date: '2026-10-10', venue: 'The Fillmore', city: 'San Francisco, CA', band: 'Tom Keifer' },
+];
+---
+
+<BaseLayout
+  title="Ryan Goldbacher | Tour Manager, Production Manager & FOH Audio Engineer"
+  description="Ryan Goldbacher is a tour manager, production manager, and FOH audio engineer with more than 20 years of international live-event experience."
+  canonical="https://ryangoldbacher.com/"
+>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Ryan Goldbacher home">
+        <span class="brand-mark" aria-hidden="true">RG</span>
+        <span>RYAN GOLDBACHER</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#tour">Tour</a>
+        <a href="#content">Content</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container">
+        <p class="eyebrow">Tour Manager · Production Manager · FOH Audio Engineer</p>
+        <h1>KEEP THE SHOW MOVING.<br>MAKE IT SOUND UNFORGETTABLE.</h1>
+        <p class="hero-copy">20+ years on the road. Six continents. Zero shortcuts.</p>
+        <div class="actions">
+          <a class="button button-primary" href="#contact">Start a conversation <span aria-hidden="true">→</span></a>
+          <a class="button" href="#tour">See tour dates</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="work">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">What I do</p>
+            <h2>One operator. Three critical roles.</h2>
+          </div>
+        </div>
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">TM</div>
+            <h3>Tour Management</h3>
+            <p>Advancing, routing, budgets, travel, hospitality, and day-to-day decisions that keep the tour moving.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">PM</div>
+            <h3>Production Management</h3>
+            <p>Technical coordination, local crew leadership, production schedules, and vendor communication.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">FOH</div>
+            <h3>FOH Audio Engineering</h3>
+            <p>Front-of-house mixing, system coordination, artist-focused mixes, and calm problem-solving under pressure.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Experience</p>
+            <h2>Built on the road, not in a boardroom.</h2>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>20+ years</strong><span>On the road across six continents</span></div>
+          <div class="stat"><strong>International</strong><span>Touring, festivals, theatres, and live events</span></div>
+          <div class="stat"><strong>Artist-led</strong><span>Production decisions built around the show</span></div>
+          <div class="stat"><strong>End to end</strong><span>Advancing through load-out</span></div>
+        </div>
+        <div class="timeline" style="margin-top: 3rem;">
+          <div class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div><h3>Tour Manager</h3><p>Routing, advancing, budgets, hospitality, travel, and crew communication for international touring acts.</p></div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div><h3>Production Manager</h3><p>Technical production oversight, local crew coordination, schedules, vendors, and show-day execution.</p></div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div><h3>FOH Audio Engineer</h3><p>Live mix decisions, system tuning, artist communication, and reliable audio delivery from soundcheck to encore.</p></div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div><h3>Industry Voice</h3><p>Sharing practical lessons from the road through short-form video, long-form interviews, and field notes.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="content">
+      <div class="container content-grid">
+        <div>
+          <p class="eyebrow">Field notes</p>
+          <h2>Practical lessons from the front of house.</h2>
+          <p class="hero-copy">I share the decisions, systems, and hard-won lessons that keep tours moving—without the polished mythology.</p>
+          <div class="actions">
+            <a class="button" href="https://www.youtube.com/@RyanTheGoldbacher" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a>
+            <a class="button" href="https://www.instagram.com/ryanthegoldbacher/" target="_blank" rel="noopener noreferrer">Follow on Instagram ↗</a>
+          </div>
+        </div>
+        <aside class="quote">
+          "Take care of the people who make the show happen. Period."
+          <footer>— Ryan Goldbacher</footer>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="tour">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">On the road</p>
+            <h2>Current tour dates.</h2>
+          </div>
+        </div>
+        <div class="tour-grid">
+          {tourDates.map((date) => (
+            <div class="tour-card">
+              <span class="tour-date">{new Date(date.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+              <h3>{date.venue}</h3>
+              <p>{date.city}</p>
+              <span class="tour-band">{date.band}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="contact">
+      <div class="container contact-card">
+        <p class="eyebrow">Contact</p>
+        <h2>Let's talk about the next show.</h2>
+        <p>For touring, production, FOH, speaking, podcast, or media inquiries, connect through Ryan's official social channels and Linktree.</p>
+        <div class="grid grid-2" style="margin-top: 1.5rem;">
+          <a class="button" href="https://www.instagram.com/ryanthegoldbacher/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span><small style="display:block;color:var(--muted);font-weight:500;">@RyanTheGoldbacher</small></a>
+          <a class="button" href="https://www.tiktok.com/@RyanTheGoldbacher" target="_blank" rel="noopener noreferrer">TikTok <span aria-hidden="true">↗</span><small style="display:block;color:var(--muted);font-weight:500;">@RyanTheGoldbacher</small></a>
+          <a class="button" href="https://www.youtube.com/@RyanTheGoldbacher" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span><small style="display:block;color:var(--muted);font-weight:500;">@RyanTheGoldbacher</small></a>
+          <a class="button" href="https://linktr.ee/RyanTheGoldbacher" target="_blank" rel="noopener noreferrer">Linktree <span aria-hidden="true">↗</span><small style="display:block;color:var(--muted);font-weight:500;">linktr.ee/RyanTheGoldbacher</small></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© {new Date().getFullYear()} Ryan Goldbacher. All rights reserved.</span>
+      <span>Tour Manager · Production Manager · FOH Audio Engineer</span>
+    </div>
+  </footer>
+
+  <script type="application/ld+json" is:raw>
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ryan Goldbacher",
+    "url": "https://ryangoldbacher.com/",
+    "jobTitle": "Tour Manager, Production Manager & FOH Audio Engineer",
+    "description": "Ryan Goldbacher is a tour manager, production manager, and FOH audio engineer with more than 20 years of international live-event experience.",
+    "sameAs": [
+      "https://www.instagram.com/ryanthegoldbacher/",
+      "https://www.tiktok.com/@RyanTheGoldbacher",
+      "https://www.youtube.com/@RyanTheGoldbacher",
+      "https://linktr.ee/RyanTheGoldbacher"
+    ]
+  }
+  </script>
+</BaseLayout>

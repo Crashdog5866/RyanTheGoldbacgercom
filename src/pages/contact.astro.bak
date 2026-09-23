@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact | Tour Management & Production Support | Ryan Goldbacher"
+  description="Contact Ryan Goldbacher for tour management, production, and FOH engineering services. Email available upon request."
+  canonical="https://ryangoldbacher.com/contact/"
+>
+  <section class="section">
+    <div class="container">
+      <h1>Contact Tour Manager Ryan Goldbacher</h1>
+      <p>Reach out for tour management, production coordination, or FOH engineering services. Contact information available upon request.</p>
+      
+      <div class="contact-card" style="text-align: center; padding: 3rem 2rem;">
+        <h2 style="margin-bottom: 1.5rem;">Contact Information</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 400px; margin: 0 auto;">
+          <div style="padding: 1.5rem; background: var(--surface); border-radius: 12px; border: 1px solid var(--line);">
+            <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Email</p>
+            <p style="font-weight: 600; color: var(--accent-2);">
+              🔒 Available upon request
+            </p>
+          </div>
+          
+          <div style="padding: 1.5rem; background: var(--surface); border-radius: 12px; border: 1px solid var(--line);">
+            <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Phone</p>
+            <p style="font-weight: 600; color: var(--accent-2);">
+              🔒 Available upon request
+            </p>
+          </div>
+          
+          <div style="padding: 1.5rem; background: var(--surface); border-radius: 12px; border: 1px solid var(--line);">
+            <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 0.5rem;">Location</p>
+            <p style="font-weight: 600;">
+              📍 Nashville, TN (home airport BNA)
+            </p>
+          </div>
+        </div>
+        
+        <div style="margin-top: 3rem; padding: 2rem; background: rgba(249, 115, 22, 0.08); border-radius: 12px; border: 1px solid rgba(249, 115, 22, 0.2);">
+          <h3 style="margin-bottom: 1rem; color: var(--accent);">Professional Inquiry</h3>
+          <p style="color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem;">
+            For tour management, production coordination, or FOH engineering inquiries, please provide details about your project and I'll respond with the appropriate contact information to support your collaboration needs.
+          </p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <span style="background: var(--surface); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; color: var(--muted);">Tour Management</span>
+            <span style="background: var(--surface); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; color: var(--muted);"></span>
+            <span style="background: var(--surface); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; color: var(--muted);"></span>
+            <span style="background: var(--surface); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; color: var(--muted);"></span>
+          </div>
+        </div>
+        
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--line);">
+          <p style="color: var(--muted); font-size: 0.9rem; font-style: italic;">
+            Contact coordination available for active tour productions, festival bookings, and ongoing music industry collaborations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
