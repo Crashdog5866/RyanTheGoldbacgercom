@@ -42,6 +42,14 @@ source_path: /Users/m1mac/.openclaw/workspace/algorithm-tickler/ryangoldbacher/s
           <p><em>By Ryan Goldbacher · September 20, 2026</em></p>
           <a class="button" href="/blog/2026-09-20-technical-philosophy-learn-by-doing/">Read Full Article</a>
         </article>
+
+        <article class="card">
+          <h3>Close Your Eyes! Why Ear Training Beats RTAs Every Time</h3>
+          <p>Ryan Goldbacher breaks down why you should close your eyes and trust your natural audio skills over RTAs. No visual crutch, no looking at screens - just pure ear training.</p>
+          <p><strong>Topics covered:</strong> Ear training, RTA dependency, live sound, audio engineering, frequency identification.</p>
+          <p><em>By Ryan Goldbacher · September 22, 2026</em></p>
+          <a class="button" href="/blog/2026-09-22-close-your-eyes-ear-training-over-rtas/">Read Full Article</a>
+        </article>
       </div>
     </div>
   </section>
