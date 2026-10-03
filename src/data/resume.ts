@@ -5,7 +5,7 @@ export const resumeData = {
   location: "Nashville, TN",
   email: "Ryan@Show-Logistics.com",
   phone: "+1.615.852.7320",
-  website: "https://ryangoldbacher.com",
+  website: "https://ryanthegoldbacher.com",
   social: {
     instagram: "https://www.instagram.com/ryanthegoldbacher/",
     tiktok: "https://www.tiktok.com/@RyanTheGoldbacher",

@@ -6,7 +6,7 @@ import { resumeData } from '../data/resume';
 <BaseLayout
   title="Contact | Tour Management & Production Support | Ryan Goldbacher"
   description="Contact Ryan Goldbacher for tour management, production, and FOH engineering services. Email available upon request."
-  canonical="https://ryangoldbacher.com/contact/"
+  canonical="https://ryanthegoldbacher.com/contact/"
 >
   <section class="section">
     <div class="container">
@@ -16,7 +16,8 @@ import { resumeData } from '../data/resume';
       </header>
 
       <div class="content-grid" style="align-items: start;">
-        <form class="contact-form" name="contact" method="POST" data-form netlify hx-post="/api/contact" hx-target="#form-result" hx-swap="innerHTML">
+        <form class="contact-form" name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
           <div class="form-row">
             <label for="name">Name</label>
             <input id="name" name="name" type="text" required placeholder="Your name" />
@@ -87,20 +88,3 @@ import { resumeData } from '../data/resume';
     * { transition-duration: 0.01ms !important; }
   }
 </style>
-
-<script>
-  document.addEventListener('htmx:configRequest', (event) => {
-    const btn = document.getElementById('contact-submit');
-    if (event.detail.verb === 'post' && btn) {
-      btn.setAttribute('aria-busy', 'true');
-      btn.textContent = 'Sending...';
-    }
-  });
-  document.addEventListener('htmx:responseError', (event) => {
-    const btn = document.getElementById('contact-submit');
-    if (btn) {
-      btn.removeAttribute('aria-busy');
-      btn.textContent = 'Send message';
-    }
-  });
-</script>
